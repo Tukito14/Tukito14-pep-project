@@ -46,5 +46,15 @@ public class AccountService {
         }
 
     }
+
+    public Account accountLogin(Account account) throws SQLException{
+        if(!accountExists(account.getUsername())){
+            System.out.println("account doesnt exist");
+            return null;
+        }else{
+            System.out.println("logging in");
+            return accountDAO.getCredentials(account);
+        }
+    }
     
 }
